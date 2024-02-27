@@ -109,7 +109,8 @@ if (-not(Test-Path -Path $uipathCLI -PathType Leaf)) {
 }
 WriteLog "-----------------------------------------------------------------------------"
 WriteLog "uipcli location :   $uipathCLI"
-
+WriteLog "Packages path $packages_path"
+WriteLog "$orchestrator_url  Tenant: $orchestrator_tenant AccountName $account_name Userkey:$UserKey"
 $ParamList = New-Object 'Collections.Generic.List[string]'
 
 if($packages_path -eq "" -or $orchestrator_url -eq "" -or $orchestrator_tenant -eq "") 
