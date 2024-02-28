@@ -204,7 +204,7 @@ if($secretIndex -ge 0){
 
 #log cli call with parameters
 WriteLog "Executing $uipathCLI $ParamMask"
-WriteLog "Testing CLI1: $uipathCLI $ParamList"
+WriteLog "Testing CLI: $uipathCLI $ParamList"
 #call uipath cli 
 & "$uipathCLI" $ParamList.ToArray()
 
