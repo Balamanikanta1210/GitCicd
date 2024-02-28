@@ -68,9 +68,9 @@ Param (
 	[string] $folder_organization_unit = "", #The Orchestrator folder (organization unit).
 	[string] $language = "", #The orchestrator language.  
     [string] $environment_list = "", #The comma-separated list of environments to deploy the package to. If the environment does not belong to the default folder (organization unit) it must be prefixed with the folder name, e.g. AccountingTeam\TestEnvironment
-    [string] $disableTelemetry = "" #Disable telemetry data.   
-    [string] $I=""
-    [string] $S=""
+    [string] $disableTelemetry = "", #Disable telemetry data.   
+    [string] $I="",
+    [string] $S="",
     [string] $applicationScope=""
     
     
