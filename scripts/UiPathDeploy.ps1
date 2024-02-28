@@ -25,6 +25,9 @@
 
 .PARAMETER account_name
     Required. The Orchestrator CloudRPA account name. Must be used together with the refresh token and client id.
+.PARAMETER I
+
+.PARAMETER S
 
 .PARAMETER folder_organization_unit
     The Orchestrator folder (organization unit).
@@ -66,6 +69,9 @@ Param (
 	[string] $language = "", #The orchestrator language.  
     [string] $environment_list = "", #The comma-separated list of environments to deploy the package to. If the environment does not belong to the default folder (organization unit) it must be prefixed with the folder name, e.g. AccountingTeam\TestEnvironment
     [string] $disableTelemetry = "" #Disable telemetry data.   
+    [string] $I=""
+    [string] $S=""
+    [string] $applicationScope=""
     
     
 
@@ -140,6 +146,18 @@ if($account_name -ne ""){
     $ParamList.Add("-a")
     $ParamList.Add($account_name)
 }
+if($I -ne ""){
+    $ParamList.Add("-I")
+    $ParamList.Add($I)
+}
+if($S -ne ""){
+    $ParamList.Add("-S")
+    $ParamList.Add($S)
+}
+if($applicationScope -ne ""){
+    $ParamList.Add("--applicationScope")
+    $ParamList.Add($applicationScope)
+}
 if($UserKey -ne ""){
     $ParamList.Add("-t")
     $ParamList.Add($UserKey)
@@ -186,7 +204,7 @@ if($secretIndex -ge 0){
 
 #log cli call with parameters
 WriteLog "Executing $uipathCLI $ParamMask"
-
+WriteLog "Testing CLI: $uipathCLI $ParamList"
 #call uipath cli 
 & "$uipathCLI" $ParamList.ToArray()
 
