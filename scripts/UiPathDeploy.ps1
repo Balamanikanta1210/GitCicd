@@ -156,7 +156,7 @@ if($S -ne ""){
 }
 if($applicationScope -ne ""){
     $ParamList.Add("--applicationScope")
-    $ParamList.Add($applicationScope)
+    $ParamList.Add(""""+$applicationScope+"""")
 }
 if($UserKey -ne ""){
     $ParamList.Add("-t")
