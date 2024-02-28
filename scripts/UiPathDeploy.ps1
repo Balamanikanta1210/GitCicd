@@ -143,7 +143,7 @@ $ParamList.Add($orchestrator_url)
 $ParamList.Add($orchestrator_tenant)
 
 if($account_name -ne ""){
-    $ParamList.Add("-a")
+    $ParamList.Add("-A")
     $ParamList.Add($account_name)
 }
 if($I -ne ""){
