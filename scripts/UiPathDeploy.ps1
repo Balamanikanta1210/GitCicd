@@ -125,7 +125,7 @@ if($packages_path -eq "" -or $orchestrator_url -eq "" -or $orchestrator_tenant -
     exit 1
 }
 
-if($account_name -eq "" -or $UserKey -eq "")
+if($account_name -eq "" -or $I -eq "" -or $S -eq ""-or $applicationScope -eq "")
 {
     if($orchestrator_user -eq "" -or $orchestrator_pass -eq "")
     {
