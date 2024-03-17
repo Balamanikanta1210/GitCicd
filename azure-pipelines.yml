@@ -58,3 +58,14 @@ steps:
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Test'
     entryPoints: '$(ENTRYPOINT_VALUE)'
+  displayName: 'UiPath Deployment Task'
+  continueOnError: true
+  timeoutInMinutes: 10
+  env:
+    ENTRYPOINT_VALUE: $(ENTRYPOINT_VALUE)  # Pass the variable to the script
+
+  # Inline script to print the value of ENTRYPOINT_VALUE
+- script: |
+    echo "The value of ENTRYPOINT_VALUE is: %ENTRYPOINT_VALUE%"
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
