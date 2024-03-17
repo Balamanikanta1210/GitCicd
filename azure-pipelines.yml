@@ -25,6 +25,33 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: '$(Build.SourcesDirectory)\project.json'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      # Read the JSON file
+      
+      $jsonContent = Get-Content -Path '$(Build.SourcesDirectory)\project.json' -Raw
+      
+       
+      
+      # Convert JSON content to PowerShell object
+      
+      $jsonObject = $jsonContent | ConvertFrom-Json
+      
+       
+      
+      # Access the value of a specific attribute
+      
+      $attributeValue = $jsonObject.main
+      
+       
+      
+      # Output the value
+      
+      Write-Host "Value of attribute_name is: $attributeValue"
 - task: UiPathDeploy@4
   inputs:
     orchestratorConnection: 'Uipath_Orch'
