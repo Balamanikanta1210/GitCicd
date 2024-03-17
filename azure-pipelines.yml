@@ -25,3 +25,9 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: '$(Build.SourcesDirectory)\project.json'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: UiPathDeploy@4
+  inputs:
+    orchestratorConnection: 'Uipath_Orch'
+    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+    folderName: 'Test'
+    entryPoints: 'Main.xaml'
