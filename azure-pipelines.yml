@@ -52,12 +52,13 @@ steps:
       # Output the value
       
       Write-Host "Value of attribute_name is: ${env:ENTRYPOINT_VALUE}"
+      Write-Host "##vso[task.setvariable variable=myVariable]${env:ENTRYPOINT_VALUE}"
 - task: UiPathDeploy@4
   inputs:
     orchestratorConnection: 'Uipath_Orch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Test'
-    entryPoints: '$(ENTRYPOINT_VALUE)'
+    entryPoints: '$(myVariable)'
   displayName: 'UiPath Deployment Task'
   continueOnError: true
   timeoutInMinutes: 10
