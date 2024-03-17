@@ -63,7 +63,7 @@ steps:
   continueOnError: true
   timeoutInMinutes: 10
   env:
-    ENTRYPOINT_VALUE: $(ENTRYPOINT_VALUE)  # Pass the variable to the script
+    ENTRYPOINT_VALUE: $(myVariable)  # Pass the variable to the script
 
   # Inline script to print the value of ENTRYPOINT_VALUE
 - script: |
