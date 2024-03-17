@@ -57,4 +57,4 @@ steps:
     orchestratorConnection: 'Uipath_Orch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Test'
-    entryPoints: $(Entrypoint_value)
+    entryPoints: '$(Entrypoint_value)'
