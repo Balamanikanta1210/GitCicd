@@ -45,16 +45,16 @@ steps:
       
       # Access the value of a specific attribute
       
-      $attributeValue = $jsonObject.main
+      ${env:ENTRYPOINT_VALUE} = $jsonObject.main
       
        
       
       # Output the value
       
-      Write-Host "Value of attribute_name is: $attributeValue"
+      Write-Host "Value of attribute_name is: ${env:ENTRYPOINT_VALUE}"
 - task: UiPathDeploy@4
   inputs:
     orchestratorConnection: 'Uipath_Orch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Test'
-    entryPoints: 'Main.xaml'
+    entryPoints: $(Entrypoint_value)
