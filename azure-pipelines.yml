@@ -45,28 +45,17 @@ steps:
       
       # Access the value of a specific attribute
       
-      ${env:ENTRYPOINT_VALUE} = $jsonObject.main
+      ${entrypoint} = $jsonObject.main
       
        
       
       # Output the value
       
       Write-Host "Value of attribute_name is: ${env:ENTRYPOINT_VALUE}"
-      Write-Host "##vso[task.setvariable variable=myVariable]${env:ENTRYPOINT_VALUE}"
+      Write-Host "##vso[task.setvariable variable=myVariable]${entrypoint}"
 - task: UiPathDeploy@4
   inputs:
     orchestratorConnection: 'Uipath_Orch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'Test'
     entryPoints: '$(myVariable)'
-  displayName: 'UiPath Deployment Task'
-  continueOnError: true
-  timeoutInMinutes: 10
-  env:
-    ENTRYPOINT_VALUE: $(myVariable)  # Pass the variable to the script
-
-  # Inline script to print the value of ENTRYPOINT_VALUE
-- script: |
-    echo "The value of ENTRYPOINT_VALUE is: %ENTRYPOINT_VALUE%"
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
